@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>Web Audio &amp; MIDI</title>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+        <link rel="stylesheet" href="./dist/css/style.min.css">
+    </head>
+
+    <body>
+        <div class="container">
+            <h1 class="display-4 mt-4">Web Audio &amp; MIDI</h1>
+
+            <h3 class="mt-5 mb-3">Devices</h3>
+ 
+            <div class="row">
+                <label for="inputs" class="col-sm-2 col-form-label">Input:</label>
+                <div class="col-sm-10">
+                    <select id="inputs" class="form-control">
+                        <option value="default">Virtual Keyboard</option>
+                    </select>
+                </div>
+            </div>    
+
+            <h3 class="mt-4 mb-3">Functions</h3>
+
+            <div class="row card card-body bg-light functions">
+                <div class="col-lg-3">
+                    <button id="chord-mode" class="btn btn-primary">Save Chord</button>
+                </div>
+                
+                <div class="col-lg-5">
+                    <div class="form-inline">
+                        <div class="form-group">
+                            <button id="note-repeat" class="btn btn-primary mr-3">Note Repeat</button>
+                            
+                            <label for="bpm">BPM&nbsp;</label>
+                            <input type="number" class="form-control mr-3" id="bpm" min="60" max="200" value="120">
+        
+                            <label for="repeat-val">Value&nbsp;</label>
+                            <select id="repeat-val" class="form-control mr-3">
+                                <option value="1">1/4</option>
+                                <option value="2">1/8</option>
+                                <option value="4">1/16</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 octave">
+                    <button class="btn btn-primary" data-octave="-12">Octave
+                        <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-caret-down-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M7.247 11.14L2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z"/>
+                        </svg>
+                    </button>
+                    <button class="btn btn-primary" data-octave="12">Octave 
+                        <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-caret-up-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M7.247 4.86l-4.796 5.481c-.566.647-.106 1.659.753 1.659h9.592a1 1 0 0 0 .753-1.659l-4.796-5.48a1 1 0 0 0-1.506 0z"/>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+
+            <h3 class="mt-4 mb-3">Sound Parameters</h3>
+
+            <div class="row card card-body bg-light params">
+                <div class="col-md-3">
+                    <h6>OSC</h6>
+                    <label>Waveform</label>
+                    <select id="wave" class="form-control" onkeydown="return false;">
+                        <option value="0">Sine</option>
+                        <option value="1">Square</option>
+                        <option value="2">Sawtooth</option>
+                        <option value="3">Triangle</option>
+                    </select>
+                </div>
+                <div class="col-md-3">
+                    <h6>FILTER</h6>
+                    <label>Type</label>
+                    <select id="filter" class="form-control mb-2" onkeydown="return false;">
+                        <option value="0">Lowpass</option>
+                        <option value="1">Highpass</option>
+                        <option value="2">Bandpass</option>
+                    </select>
+                    <label>Frequency (0-700Hz)</label><input type="range" min="1" max="100" value="50" id="frequency">
+                </div>
+                <div class="col-md-3">
+                    <h6>FX</h6>
+                    <label>Delay</label><input type="range" min="0" max="100" value="0" id="wet">
+                    <label>Feedback</label><input type="range" min="0" max="100" value="25" id="feedback">
+                    <label>Time (1-1000ms)</label><input type="range" min="1" max="1000" value="250" id="time">
+                </div>
+                <div class="col-md-3">
+                    <h6>AMP</h6>
+                    <label>Gain</label><input type="range" min="0" max="100" value="50" id="masterVol">
+                </div>
+            </div>
+
+            <h3 class="mt-4 mb-3">Virtual Keyboard</h3>
+            
+            <div class="container ">
+                <div class="row">
+                    <div class="col-md-6 keyboard">
+                        <ul class="keys set">
+                            <li class="white f" data-midi="53"></li>
+                            <li class="black fs" data-midi="54"></li>
+                            <li class="white g" data-midi="55"></li>
+                            <li class="black gs" data-midi="56"></li>
+                            <li class="white a" data-midi="57"></li>
+                            <li class="black as" data-midi="58"></li>
+                            <li class="white b" data-midi="59"></li>
+                            <li class="white c" data-midi="60"></li>
+                            <li class="black cs" data-midi="61"></li>
+                            <li class="white d" data-midi="62"></li>
+                            <li class="black ds" data-midi="63"></li>
+                            <li class="white e" data-midi="64"></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/tunajs/1.0.1/tuna-min.js"></script>
+        <script src="./dist/js/main.min.js"></script>
+    </body>
+</html>

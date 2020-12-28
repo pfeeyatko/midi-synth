@@ -1,0 +1,68 @@
+input[type=range]:focus {
+    outline: none;
+}
+
+input[type=range] {
+    width: 100%;
+}
+
+.row.card {
+    margin-right: 0;
+    margin-left: 0;
+    flex-direction: row;
+}
+
+.keyboard {
+    padding-left: 0;
+    padding-right: 0;
+}
+
+.functions .btn {
+    width: 140px;
+}
+
+.octave {
+    text-align: right;
+}
+
+@media only screen and (min-width: 992px) {
+    .octave .btn {
+        margin-bottom: 5px;
+    }
+}
+
+@media only screen and (max-width: 991px) {
+    .octave {
+        text-align: left;
+    }
+
+    .functions .btn {
+        margin-bottom: 12px;
+    }
+}
+
+@media only screen and (max-width: 767px) {
+    .params h6 {
+        margin-top: 10px;
+    }
+
+    .octave {
+        text-align: initial;
+    }
+}
+
+@media only screen and (min-width: 576px) {
+    #bpm {
+        max-width: 72px;
+    }
+}
+
+@media only screen and (max-width: 575px) {
+    .functions .btn {
+        width: 100%;
+    }
+
+    .functions .form-inline {
+        display: block;
+    }
+}

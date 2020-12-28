@@ -1,0 +1,24 @@
+{
+  "name": "frontend-boilerplate",
+  "version": "1.0.0",
+  "description": "Boilerplate for front end development",
+  "main": "gulpfile.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": "https://github.com/peefeeyatko/frontend-boilerplate",
+  "author": "Marshall Sutton",
+  "license": "ISC",
+  "dependencies": {},
+  "devDependencies": {
+    "@babel/core": "^7.12.3",
+    "@babel/preset-env": "^7.12.1",
+    "gulp": "^4.0.0",
+    "gulp-babel": "^8.0.0",
+    "gulp-clean-css": "^4.3.0",
+    "gulp-concat": "^2.6.0",
+    "gulp-jshint": "^2.0.1",
+    "gulp-uglify": "^3.0.0",
+    "jshint": "^2.12.0"
+  }
+}
