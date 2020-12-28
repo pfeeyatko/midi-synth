@@ -1,0 +1,16 @@
+{
+    "browser"       : true,
+    "camelcase"     : true,
+    "curly"         : true,
+    "strict"        : false,
+    "asi"           : false,
+    "unused"        : true,
+    "undef"         : true,
+    "plusplus"      : false,
+    "quotmark"      : "single",
+    "eqeqeq"        : true,
+    "maxdepth"      : 2,
+    "maxcomplexity" : 5,
+    "esversion"     : 6,
+    "devel"         : true
+}
