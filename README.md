@@ -1,7 +1,7 @@
 Web Audio Synthesizer with MIDI
 ===============================
 
-A browser based synthesizer which can be played by connecting a MIDI device or using the virtual keyboard. Functions include saving a chord, note repeat and octave up/down.
+A browser based synthesizer which can be played by connecting a MIDI device or using the supplied virtual keyboard. Functions include saving a chord, note repeat and octave up/down.
 
 ### Devices
 
@@ -20,7 +20,7 @@ MIDI compatible devices which are connected will be selectable from the input op
 Selectable waveforms include Sine, Square, Sawtooth and Triangle.
 
 #### Filter
-Selectable filters include Lowpass, Highpass and Bandpass. Frequency can be sweeped from 0 to 700Hz.
+Selectable filters include Lowpass, Highpass and Bandpass. Frequency can be adjusted from 0 to 700Hz.
 
 #### FX
 A delay can be added to the sound by adjusting the range sliders for Delay (the dry/wet mix), Feedback and Time (1-1000ms).
