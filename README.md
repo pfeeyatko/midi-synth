@@ -9,7 +9,7 @@ MIDI compatible devices which are connected will be selectable from the input op
 
 ### Functions
 
-* `Save Chord` - Hold down the "Save Chord" button and play two or more notes. Release the button and you can now play chords with one finger/note. 
+* `Save Chord` - Hold down the "Save Chord" button and play two or more notes. Release the button - you can now play chords with one finger. 
 * `Note Repeat` - Hold down the "Note Repeat" button to repeat the currently played note. Set the BPM and note values to adjust timing.
 * `Octave Up/Down` - Shift pitch +/- 2 octaves.
 
@@ -26,4 +26,4 @@ Selectable filters include Lowpass, Highpass and Bandpass. Frequency can be adju
 A delay can be added to the sound by adjusting the range sliders for Delay (the dry/wet mix), Feedback and Time (1-1000ms).
 
 #### AMP
-Overall volume of the sound can be controller using the Gain range slider.
+The overall volume of the sound can be controlled using the Gain range slider.
