@@ -5,7 +5,7 @@ A browser based synthesizer which can be played by connecting a MIDI device or u
 
 ### Devices
 
-MIDI compatible devices which are connected will be selectable from the input options. The default device for input is the virtual keyboard. 
+MIDI compatible devices that are connected will be selectable from the input options. The default device selected for input is the virtual keyboard. 
 
 ### Functions
 
