@@ -28,6 +28,6 @@ A delay can be added to the sound by adjusting the range sliders for Delay (the 
 #### AMP
 The overall volume of the sound can be controlled using the Gain range slider.
 
-### Key mapping for virtual keyboard
+### Keyboard mapping for virtual keys
 
 ![key mapping](http://13.55.23.144/midi-synth/screenshot.png)
