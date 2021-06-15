@@ -116,6 +116,10 @@ let WebAudio = (function() {
             
             // init master volume to 50%
             this.setMasterGain();
+        },
+
+        audioCtx: function () {
+            return audioContext;
         }
     };
     

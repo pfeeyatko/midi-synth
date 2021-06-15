@@ -20,6 +20,9 @@ let Midi = (function() {
     let chordBtn = document.getElementById('chord-mode');
     let repeatBtn = document.getElementById('note-repeat');
 
+    let eventStart = ('ontouchstart' in window) ? 'touchstart' : 'mousedown';
+    let eventEnd = ('ontouchstart' in window) ? 'touchend' : 'mouseup';
+
     function connect() {
         if (!navigator.requestMIDIAccess) {
             return false;
@@ -43,6 +46,10 @@ let Midi = (function() {
         let cmd = event.data[0];
         let note = event.data[1];
         let velocity = event.data[2];
+
+        if (WebAudio.audioCtx().state === 'suspended') {
+            WebAudio.audioCtx().resume(); 
+        }
 
         if (chordMemory.length > 1 && chordBtn.classList.contains('btn-success')) {
 
@@ -164,7 +171,7 @@ let Midi = (function() {
             inputSelect.addEventListener('change', selectMidiIn);
 
             // event handler for chord mode
-            chordBtn.addEventListener('mousedown', function() {
+            chordBtn.addEventListener(eventStart, function() {
                 if (this.classList.contains('btn-success')) {
                     clearChord();
                     this.innerText = 'Save Chord';
@@ -173,7 +180,7 @@ let Midi = (function() {
                 this.classList.add('btn-danger');
             });
 
-            chordBtn.addEventListener('mouseup', function() {
+            chordBtn.addEventListener(eventEnd, function() {
                 this.classList.remove('btn-danger');
                 if (chordMemory.length > 1) {
                     this.innerText = 'Clear Chord';
@@ -184,12 +191,12 @@ let Midi = (function() {
             });
 
             // event handler for note repeat
-            repeatBtn.addEventListener('mousedown', function() {
+            repeatBtn.addEventListener(eventStart, function() {
                 noteRepeat = true;
                 this.classList.add('btn-danger');
             });
 
-            repeatBtn.addEventListener('mouseup', function() {
+            repeatBtn.addEventListener(eventEnd, function() {
                 noteRepeat = false;
                 noteRepeatStop();
                 this.classList.remove('btn-danger');
@@ -198,7 +205,7 @@ let Midi = (function() {
             // event handler for octave buttons
             let octaveBtns = document.querySelectorAll('.octave .btn');
             octaveBtns.forEach(function(btn) {
-                btn.addEventListener('mousedown', function(e) {
+                btn.addEventListener(eventStart, function(e) {
                     octaveChange(e.currentTarget.dataset.octave);
                     let btns = document.querySelectorAll('[data-octave]');
                     btns[0].classList.remove('btn-danger');
@@ -214,14 +221,14 @@ let Midi = (function() {
             // virtal keyboard event listeners
             let keys = document.querySelectorAll('.keys li');
             keys.forEach(function(key) {
-                key.addEventListener('mousedown', function() {
+                key.addEventListener(eventStart, function() {
                     if (!virtualKeys) { 
                         return false;
                     }
-                    WebAudio.play(key.dataset.midi);
+                    midiMsgReceived({data: [NOTE_ON, parseInt(key.dataset.midi), 127]});
                 });
 
-                key.addEventListener('mouseup', function() {
+                key.addEventListener(eventEnd, function() {
                     if (!virtualKeys) {
                          return false;
                     }
