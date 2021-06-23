@@ -1,7 +1,7 @@
 Web Audio Synthesizer with MIDI
 ===============================
 
-A browser based synthesizer which can be played by connecting a MIDI device via USB or using the supplied virtual keyboard. Functions include saving a chord, note repeat and octave up/down.
+A browser based polyphonic synthesizer which can be played by connecting a MIDI device via USB or using the supplied virtual keyboard. Functions include saving a chord, note repeat and octave up/down.
 
 ### Devices
 
